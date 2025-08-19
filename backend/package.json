@@ -1,11 +1,8 @@
 {
-  "name": "boilerplate-express-prisma-ts",
+  "name": "FlowTalk",
   "version": "1.0.1",
   "description": "",
   "main": "./src/server.ts",
-  "bin": {
-    "boilerplate-express-prisma": "./bin/install.js"
-  },
   "directories": {
     "test": "test"
   },
@@ -16,20 +13,12 @@
     "add-build": "git add dist",
     "start": "TZ=Asia/Jakarta node ./dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/michaeldavidvinc1/boilerplate-node-express-prisma.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/michaeldavidvinc1/boilerplate-node-express-prisma/issues"
-  },
-  "homepage": "https://github.com/michaeldavidvinc1/boilerplate-node-express-prisma#readme",
   "dependencies": {
-    "@prisma/client": "^6.8.2",
+    "@prisma/client": "^6.14.0",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -50,7 +39,7 @@
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.13.9",
     "nodemon": "^3.1.9",
-    "prisma": "^6.4.1",
+    "prisma": "^6.14.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   }

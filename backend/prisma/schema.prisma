@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,32 +14,131 @@ enum TokenType {
   VERIFY_EMAIL
 }
 
+enum TypeConversation {
+  PRIVATE
+  GROUP
+}
+
+enum RoleConversation {
+  MEMBER
+  ADMIN
+}
+
+enum TypeMessage {
+  TEXT
+  IMAGE
+  FILE
+  VOICE
+  VIDEO_CALL_LOG
+}
+
+enum StatusMessage {
+  SENT
+  DELIVERED
+  READ
+}
+
+enum TypeCalls {
+  VOICE
+  VIDEO
+}
+
+enum StatusCalls {
+  MISSED
+  ENDED
+  ONGOING
+}
+
 model User {
-  id              String   @id @default(cuid())
+  id              String         @id @default(cuid())
   name            String
-  email           String   @unique
+  email           String         @unique
   password        String
-  role            String   @default("user")
-  isEmailVerified Boolean  @default(false)
+  isEmailVerified Boolean        @default(false) @map("is_email_verified")
   tokens          Token[]
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  avatarUrl       String         @map("avatar_url")
+  lastSeen        DateTime       @map("last_seen")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+  Conversation    Conversation[]
 
   @@index([id])
   @@map("users")
 }
 
 model Token {
-  id          String    @id @default(cuid())
-  token       String    @db.Text
-  userId      String
-  user        User      @relation(fields: [userId], references: [id])
-  type        TokenType
-  expires     DateTime
-  blacklisted Boolean   @default(false)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id        String    @id @default(cuid())
+  token     String    @db.Text
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id])
+  type      TokenType
+  expires   DateTime
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
 
   @@index([token(length: 64)])
   @@map("token")
+}
+
+model Conversation {
+  id        String           @id @default(cuid())
+  type      TypeConversation
+  name      String
+  avatarUrl String           @map("avatar_url")
+  createdBy String
+  user      User             @relation(fields: [createdBy], references: [id])
+  createdAt DateTime         @default(now()) @map("created_at")
+
+  @@map("conversation")
+}
+
+model ConversationMember {
+  id             String           @id @default(cuid())
+  conversationId String           @map("conversation_id")
+  conversation   Conversation     @relation(fields: [conversationId], references: [id])
+  userId         String           @map("user_id")
+  user           User             @relation(fields: [userId], references: [id])
+  role           RoleConversation
+  joinAt         DateTime         @map("join_at")
+
+  @@map("conversation_member")
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String       @map("conversation_id")
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  senderId       String       @map("sender_id")
+  user           User         @relation(fields: [senderId], references: [id])
+  content        String?
+  type           TypeMessage
+  replyTo        String?      @map("reply_to")
+  createdAt      DateTime     @default(now()) @map("created_at")
+
+  @@map("message")
+}
+
+model MessageStatus {
+  id        String        @id @default(cuid())
+  messageId String        @map("message_id")
+  message   Message       @relation(fields: [messageId], references: [id])
+  userId    String        @map("user_id")
+  user      User          @relation(fields: [userId], references: [id])
+  status    StatusMessage
+
+  @@map("message_status")
+}
+
+model Calls {
+  id             String       @id @default(cuid())
+  conversationId String       @map("conversation_id")
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  callerId       String       @map("caller_id")
+  user           User         @relation(fields: [callerId], references: [id])
+  type           TypeCalls
+  status         StatusCalls
+  startAt        DateTime     @map("start_at")
+  endedAt        DateTime     @map("ended_at")
+
+  @@map("calls")
 }
