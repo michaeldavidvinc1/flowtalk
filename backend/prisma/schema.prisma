@@ -50,17 +50,21 @@ enum StatusCalls {
 }
 
 model User {
-  id              String         @id @default(cuid())
-  name            String
-  email           String         @unique
-  password        String
-  isEmailVerified Boolean        @default(false) @map("is_email_verified")
-  tokens          Token[]
-  avatarUrl       String         @map("avatar_url")
-  lastSeen        DateTime       @map("last_seen")
-  createdAt       DateTime       @default(now()) @map("created_at")
-  updatedAt       DateTime       @updatedAt @map("updated_at")
-  Conversation    Conversation[]
+  id                 String               @id @default(cuid())
+  name               String
+  email              String               @unique
+  password           String
+  isEmailVerified    Boolean              @default(false) @map("is_email_verified")
+  tokens             Token[]
+  avatarUrl          String               @map("avatar_url")
+  lastSeen           DateTime             @map("last_seen")
+  createdAt          DateTime             @default(now()) @map("created_at")
+  updatedAt          DateTime             @updatedAt @map("updated_at")
+  Conversation       Conversation[]
+  ConversationMember ConversationMember[]
+  Message            Message[]
+  MessageStatus      MessageStatus[]
+  Calls              Calls[]
 
   @@index([id])
   @@map("users")
@@ -76,18 +80,21 @@ model Token {
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
 
-  @@index([token(length: 64)])
+  @@index([token])
   @@map("token")
 }
 
 model Conversation {
-  id        String           @id @default(cuid())
-  type      TypeConversation
-  name      String
-  avatarUrl String           @map("avatar_url")
-  createdBy String
-  user      User             @relation(fields: [createdBy], references: [id])
-  createdAt DateTime         @default(now()) @map("created_at")
+  id                 String               @id @default(cuid())
+  type               TypeConversation
+  name               String
+  avatarUrl          String               @map("avatar_url")
+  createdBy          String
+  user               User                 @relation(fields: [createdBy], references: [id])
+  createdAt          DateTime             @default(now()) @map("created_at")
+  ConversationMember ConversationMember[]
+  Message            Message[]
+  Calls              Calls[]
 
   @@map("conversation")
 }
@@ -105,15 +112,16 @@ model ConversationMember {
 }
 
 model Message {
-  id             String       @id @default(cuid())
-  conversationId String       @map("conversation_id")
-  conversation   Conversation @relation(fields: [conversationId], references: [id])
-  senderId       String       @map("sender_id")
-  user           User         @relation(fields: [senderId], references: [id])
+  id             String          @id @default(cuid())
+  conversationId String          @map("conversation_id")
+  conversation   Conversation    @relation(fields: [conversationId], references: [id])
+  senderId       String          @map("sender_id")
+  user           User            @relation(fields: [senderId], references: [id])
   content        String?
   type           TypeMessage
-  replyTo        String?      @map("reply_to")
-  createdAt      DateTime     @default(now()) @map("created_at")
+  replyTo        String?         @map("reply_to")
+  createdAt      DateTime        @default(now()) @map("created_at")
+  MessageStatus  MessageStatus[]
 
   @@map("message")
 }
