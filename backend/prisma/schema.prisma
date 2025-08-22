@@ -7,13 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum TokenType {
-  ACCESS
-  REFRESH
-  RESET_PASSWORD
-  VERIFY_EMAIL
-}
-
 enum TypeConversation {
   PRIVATE
   GROUP
@@ -55,9 +48,8 @@ model User {
   email              String               @unique
   password           String
   isEmailVerified    Boolean              @default(false) @map("is_email_verified")
-  tokens             Token[]
   avatarUrl          String               @map("avatar_url")
-  lastSeen           DateTime             @map("last_seen")
+  lastSeen           DateTime?            @map("last_seen")
   createdAt          DateTime             @default(now()) @map("created_at")
   updatedAt          DateTime             @updatedAt @map("updated_at")
   Conversation       Conversation[]
@@ -68,20 +60,6 @@ model User {
 
   @@index([id])
   @@map("users")
-}
-
-model Token {
-  id        String    @id @default(cuid())
-  token     String    @db.Text
-  userId    String    @map("user_id")
-  user      User      @relation(fields: [userId], references: [id])
-  type      TokenType
-  expires   DateTime
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-
-  @@index([token])
-  @@map("token")
 }
 
 model Conversation {
