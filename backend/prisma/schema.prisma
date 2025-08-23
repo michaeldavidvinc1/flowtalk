@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TokenType {
+  ACCESS
+  REFRESH
+}
+
 enum TypeConversation {
   PRIVATE
   GROUP

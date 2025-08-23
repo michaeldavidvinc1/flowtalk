@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from "moment-timezone";
 import jwt, {JwtPayload} from "jsonwebtoken";
 import config from "../../config/config";
 import {GenerateToken, TokenResponse} from "../../interface/tokenInterface";
@@ -19,6 +19,7 @@ export class TokenService {
 
   async generateAccessToken(userId: string): Promise<TokenResponse> {
     const accessTokenExpire = moment().add(config.jwt_expire, "days");
+    console.log(config.jwt_expire);
     const accessToken = await this.generateToken({
       userId,
       expires: accessTokenExpire.toDate(),

@@ -31,14 +31,14 @@ export class AuthController {
         })
     })
 
-    refreshToken = catchAsync(async(req: Request, res: Response) => {
-        const request = req.body.refreshToken;
-        const result = await this.authService.refreshToken(request);
-        logger.info(`Refresh token success`);
-        res.status(HTTP_OK).json({
-            success: true,
-            message: "Refresh token successfully",
-            data: result
-        })
-    })
+    // refreshToken = catchAsync(async(req: Request, res: Response) => {
+    //     const request = req.body.refreshToken;
+    //     const result = await this.authService.refreshToken(request);
+    //     logger.info(`Refresh token success`);
+    //     res.status(HTTP_OK).json({
+    //         success: true,
+    //         message: "Refresh token successfully",
+    //         data: result
+    //     })
+    // })
 }

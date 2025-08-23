@@ -7,12 +7,15 @@ import {AuthResponse, ILoginRequest, IRegisterRequest} from "../../interface/aut
 import {HTTP_CONFLICT, HTTP_FORBIDDEN, HTTP_NOT_FOUND, HTTP_UNAUTHORIZED} from "../../constant/data";
 import {UserRepositoryImpl} from "../repository/impl/user.repository.impl";
 import moment from "moment";
+import {RedisService} from "./redis.service";
+import {TokenType} from "@prisma/client";
 
 export class AuthService {
 
     constructor(
         private userRepository: UserRepositoryImpl,
-        private tokenService: TokenService
+        private tokenService: TokenService,
+        private redisService: RedisService
     ) {}
 
     async login(req: ILoginRequest): Promise<AuthResponse> {
@@ -53,12 +56,28 @@ export class AuthService {
         }
 
         registerRequest.password = await bcrypt.hash(registerRequest.password, 10);
+        registerRequest.avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(registerRequest.name)}&background=random`;
 
         const user = await this.userRepository.createUser(registerRequest);
 
         const tokenAccess = await this.tokenService.generateAccessToken(user.id);
+        console.log(tokenAccess.expires)
 
         const tokenRefresh = await this.tokenService.generateRefreshToken(user.id);
+
+        await this.redisService.saveToken(
+            user.id,
+            tokenAccess.token,
+            tokenAccess.expires,
+            TokenType.ACCESS
+        );
+
+        await this.redisService.saveToken(
+            user.id,
+            tokenRefresh.token,
+            tokenRefresh.expires,
+            TokenType.REFRESH
+        );
 
         return {
             user,
