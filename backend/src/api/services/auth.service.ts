@@ -37,6 +37,20 @@ export class AuthService {
 
         const tokenRefresh = await this.tokenService.generateRefreshToken(user.id);
 
+        await this.redisService.saveToken(
+            user.id,
+            tokenAccess.token,
+            tokenAccess.expires,
+            TokenType.ACCESS
+        );
+
+        await this.redisService.saveToken(
+            user.id,
+            tokenRefresh.token,
+            tokenRefresh.expires,
+            TokenType.REFRESH
+        );
+
         return {
             user,
             tokens: {
@@ -61,8 +75,6 @@ export class AuthService {
         const user = await this.userRepository.createUser(registerRequest);
 
         const tokenAccess = await this.tokenService.generateAccessToken(user.id);
-        console.log(tokenAccess.expires)
-
         const tokenRefresh = await this.tokenService.generateRefreshToken(user.id);
 
         await this.redisService.saveToken(
