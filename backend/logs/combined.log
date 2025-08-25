@@ -1,0 +1,268 @@
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo2gj2100007ktkvszzdqe7: SimpleError: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12) {
+  [stack]: [Getter/Setter],
+  [message]: "ERR invalid expire time in 'setex' command"
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: ERR invalid expire time in 'setex' command
+[31merror[39m: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo2kb9h00007kdc5oy8wskh: SimpleError: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12) {
+  [stack]: [Getter/Setter],
+  [message]: "ERR invalid expire time in 'setex' command"
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: ERR invalid expire time in 'setex' command
+[31merror[39m: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo2lkji00007kfcnctvl0w1: SimpleError: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12) {
+  [stack]: [Getter/Setter],
+  [message]: "ERR invalid expire time in 'setex' command"
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: ERR invalid expire time in 'setex' command
+[31merror[39m: Error: ERR invalid expire time in 'setex' command
+    at Decoder.#decodeSimpleError (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:650:7)
+    at Decoder.#decodeTypeValue (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\index.ts:719:31)
+    at RedisSocket.emit (node:events:518:28)
+    at RedisSocket.emit (node:domain:489:12)
+    at Socket.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\node_modules\@redis\client\lib\client\socket.ts:275:32)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo2o7pf00007kpslnxtl2mm: Error: TTL expired for ACCESS token user cmeo2o7pf00007kpslnxtl2mm
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  [stack]: [Getter/Setter],
+  [message]: 'TTL expired for ACCESS token user cmeo2o7pf00007kpslnxtl2mm'
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: TTL expired for ACCESS token user cmeo2o7pf00007kpslnxtl2mm
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: TTL expired for ACCESS token user cmeo2o7pf00007kpslnxtl2mm
+[31merror[39m: Error: TTL expired for ACCESS token user cmeo2o7pf00007kpslnxtl2mm
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: Email already exists!
+    at AuthService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:55:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:5:58)
+[31merror[39m: Error 409 on POST /api/v1/auth/register: Email already exists!
+[31merror[39m: Error: Email already exists!
+    at AuthService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:55:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:5:58)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo4cl4q00007klg9zppdmyy: Error: TTL expired for ACCESS token user cmeo4cl4q00007klg9zppdmyy
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  [stack]: [Getter/Setter],
+  [message]: 'TTL expired for ACCESS token user cmeo4cl4q00007klg9zppdmyy'
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: TTL expired for ACCESS token user cmeo4cl4q00007klg9zppdmyy
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: TTL expired for ACCESS token user cmeo4cl4q00007klg9zppdmyy
+[31merror[39m: Error: TTL expired for ACCESS token user cmeo4cl4q00007klg9zppdmyy
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo4dyix00007k6c051k2g59: Error: TTL expired for ACCESS token user cmeo4dyix00007k6c051k2g59
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  [stack]: [Getter/Setter],
+  [message]: 'TTL expired for ACCESS token user cmeo4dyix00007k6c051k2g59'
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: TTL expired for ACCESS token user cmeo4dyix00007k6c051k2g59
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: TTL expired for ACCESS token user cmeo4dyix00007k6c051k2g59
+[31merror[39m: Error: TTL expired for ACCESS token user cmeo4dyix00007k6c051k2g59
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Failed to save ACCESS token for user cmeo4gxwq00007k3onqzvtpyz: Error: TTL expired for ACCESS token user cmeo4gxwq00007k3onqzvtpyz
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  [stack]: [Getter/Setter],
+  [message]: 'TTL expired for ACCESS token user cmeo4gxwq00007k3onqzvtpyz'
+}
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: TTL expired for ACCESS token user cmeo4gxwq00007k3onqzvtpyz
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[31merror[39m: Error 500 on POST /api/v1/auth/register: TTL expired for ACCESS token user cmeo4gxwq00007k3onqzvtpyz
+[31merror[39m: Error: TTL expired for ACCESS token user cmeo4gxwq00007k3onqzvtpyz
+    at RedisService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:13:23)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\redis.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: ACCESS token saved for user cmeo4hltu00007k0s4hifb08z with TTL 86399s
+[32minfo[39m: REFRESH token saved for user cmeo4hltu00007k0s4hifb08z with TTL 604798s
+[32minfo[39m: Registration success for email: oghiet1810@gmail.com
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[32minfo[39m: Server running on localhost:3000
+[32minfo[39m: Starting a postgresql pool with 21 connections.
+[32minfo[39m: Successfully connected to the database
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: Error: Email already exists!
+    at AuthService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:69:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:5:58)
+[31merror[39m: Error 409 on POST /api/v1/auth/register: Email already exists!
+[31merror[39m: Error: Email already exists!
+    at AuthService.<anonymous> (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:69:19)
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Coding\Web\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:5:58)
