@@ -5,6 +5,7 @@ import { AuthService } from "../../src/api/services/auth.service";
 // mock bcrypt biar hash selalu "hashed-password"
 jest.mock("bcrypt", () => ({
     hash: jest.fn().mockResolvedValue("hashed-password"),
+    compare: jest.fn(),
 }));
 
 // Mock dependency
@@ -92,3 +93,18 @@ describe("AuthService.register", () => {
         });
     });
 });
+
+describe("AuthService.login", () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should throw error email not found', async() => {
+        mockUserRepo.getUserByEmail.mockResolvedValue(null);
+
+        await expect(service.login({email: "test@gmail.com", password: "12345678"})).rejects.toThrow(ApiError);
+
+        expect(mockUserRepo.getUserByEmail).toHaveBeenCalledWith("test@gmail.com")
+        expect(mockTokenService.generateAccessToken).not.toHaveBeenCalled();
+    });
+})
