@@ -1,5 +1,4 @@
 import express from "express";
-import {userRouter} from "./users.route";
 import {AuthController} from "../controller/auth.controller";
 import {AuthService} from "../services/auth.service";
 import {UserRepository} from "../repository/user.repository";
@@ -17,4 +16,4 @@ const authController = new AuthController(authService)
 
 authRouter.post("/login", rateLimiter, authController.login);
 authRouter.post("/register", rateLimiter, authController.register);
-// authRouter.post("/refresh-token", rateLimiter, authController.refreshToken);
+authRouter.post("/refresh-token", rateLimiter, authController.refreshToken);

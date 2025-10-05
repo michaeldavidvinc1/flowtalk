@@ -233,3 +233,46 @@ Please make sure your database server is running at `127.0.0.1:5432`.
 [31merror[39m: Failed to connect to the database Can't reach database server at `host.docker.internal:5432`
 
 Please make sure your database server is running at `host.docker.internal:5432`.
+[31merror[39m: Unhandled error in POST /api/v1/auth/register: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "name"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (D:\Coding\Full Stack\flowtalk\backend\node_modules\zod\dist\cjs\v3\types.js:45:31)
+    at ZodObject.parse (D:\Coding\Full Stack\flowtalk\backend\node_modules\zod\dist\cjs\v3\types.js:120:22)
+    at Function.validate (D:\Coding\Full Stack\flowtalk\backend\src\validation\validation.ts:5:19)
+    at AuthService.<anonymous> (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:64:44)
+    at Generator.next (<anonymous>)
+    at D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:4:12)
+    at AuthService.register (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:53:16)
+    at AuthController.<anonymous> (D:\Coding\Full Stack\flowtalk\backend\src\api\controller\auth.controller.ts:25:47)
+[31merror[39m: Error 400 on POST /api/v1/auth/register: Validation failed
+[31merror[39m: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "name"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (D:\Coding\Full Stack\flowtalk\backend\node_modules\zod\dist\cjs\v3\types.js:45:31)
+    at ZodObject.parse (D:\Coding\Full Stack\flowtalk\backend\node_modules\zod\dist\cjs\v3\types.js:120:22)
+    at Function.validate (D:\Coding\Full Stack\flowtalk\backend\src\validation\validation.ts:5:19)
+    at AuthService.<anonymous> (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:64:44)
+    at Generator.next (<anonymous>)
+    at D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:4:12)
+    at AuthService.register (D:\Coding\Full Stack\flowtalk\backend\src\api\services\auth.service.ts:53:16)
+    at AuthController.<anonymous> (D:\Coding\Full Stack\flowtalk\backend\src\api\controller\auth.controller.ts:25:47)

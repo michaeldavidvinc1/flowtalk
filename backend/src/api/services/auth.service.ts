@@ -100,27 +100,38 @@ export class AuthService {
         };
     }
 
-    // async refreshToken(refreshToken: string): Promise<AuthResponse> {
-    //
-    //     console.info('user', user);
-    //     if (!user) {
-    //         throw new ApiError(HTTP_FORBIDDEN, "Token is not valid!");
-    //     }
-    //
-    //     const newAccessToken = await this.tokenService.generateAccessToken(user.id);
-    //     console.info('newAccessToken', newAccessToken);
-    //     return {
-    //         user: {
-    //             id: user.id,
-    //             name: user.name,
-    //             email: user.email,
-    //             role: user.role,
-    //         },
-    //         tokens: {
-    //             access: newAccessToken,
-    //             refresh: storedRefreshToken,
-    //         }
-    //     };
-    // }
+    async refreshToken(userId: string, refreshToken: string): Promise<AuthResponse> {
+
+        const checkUser = await this.userRepository.getUserById(userId);
+
+        if(!checkUser){
+            throw new ApiError(HTTP_NOT_FOUND, "User not found");
+        }
+
+        const checkToken = await this.redisService.isTokenValid(userId, refreshToken, TokenType.REFRESH);
+
+        if(!checkToken){
+            throw new ApiError(HTTP_NOT_FOUND, "Token not found");
+        }
+
+        await this.redisService.deleteToken(userId, TokenType.REFRESH);
+        await this.redisService.deleteToken(userId, TokenType.ACCESS);
+
+        const tokenAccess = await this.tokenService.generateAccessToken(userId);
+        const tokenRefresh = await this.tokenService.generateRefreshToken(userId);
+
+        return {
+            user: {
+                id: checkUser.id,
+                name: checkUser.name,
+                email: checkUser.email,
+            },
+            tokens: {
+                access: tokenAccess,
+                refresh: tokenRefresh,
+            }
+        };
+
+    }
 
 }
