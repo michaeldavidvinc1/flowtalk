@@ -2,24 +2,41 @@ import {IUser, IUserCreate, IUserSearch, IUserUpdate} from "../../interface/user
 import {prismaClient} from "../../config/db";
 import {Pageable} from "../../interface/page";
 import {UserRepositoryImpl} from "./impl/user.repository.impl";
+import {logger} from "../../config/logger";
 
 export class UserRepository implements  UserRepositoryImpl {
     async createUser(userData: IUserCreate): Promise<IUser> {
-        return prismaClient.user.create({data: userData})
+        logger.info(`[UserRepository] Create user Start`);
+        const user = prismaClient.user.create({data: userData});
+        logger.info(`[UserRepository] Create user End`);
+        return user;
     }
     async getUserById(id: string): Promise<IUser | null> {
-        return prismaClient.user.findFirst({where: {id}})
+        logger.info(`[UserRepository] Get User By Id Start`);
+        const user = prismaClient.user.findFirst({where: {id}})
+        logger.info(`[UserRepository] Get User By Id End`);
+        return user;
     }
     async getUserByEmail(email: string): Promise<IUser | null> {
-        return prismaClient.user.findFirst({where: {email}})
+        logger.info(`[UserRepository] Get User By Email Start`);
+        const user = prismaClient.user.findFirst({where: {email}});
+        logger.info(`[UserRepository] Get User By Email End`);
+        return user;
     }
     async updateUser(id: string, userData: IUserUpdate): Promise<IUser> {
-        return prismaClient.user.update({where: {id}, data: userData})
+        logger.info(`[UserRepository] Update User Start`);
+        const user =  prismaClient.user.update({where: {id}, data: userData});
+        logger.info(`[UserRepository] Update User End`);
+        return user;
     }
     async deleteUser(id: string): Promise<IUser> {
-        return prismaClient.user.delete({where: {id}})
+        logger.info(`[UserRepository] Delete User Start`);
+        const user = prismaClient.user.delete({where: {id}});
+        logger.info(`[UserRepository] Delete User End`);
+        return user;
     }
     async getAllUsers(userFilter: IUserSearch): Promise<Pageable<IUser>> {
+        logger.info(`[UserRepository] Get All User Start`);
         const skip = (userFilter.page - 1) * userFilter.size;
         const filters: Record<string, unknown> = {};
 
@@ -40,7 +57,7 @@ export class UserRepository implements  UserRepositoryImpl {
         const total = await prismaClient.user.count({
             where: {...filters},
         });
-
+        logger.info(`[UserRepository] Get All User End`);
         return {
             data: user,
             paging: {
