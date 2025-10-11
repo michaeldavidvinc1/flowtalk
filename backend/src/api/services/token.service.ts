@@ -1,7 +1,7 @@
 import moment from "moment-timezone";
 import jwt, {JwtPayload} from "jsonwebtoken";
 import config from "../../config/config";
-import {GenerateToken, TokenResponse} from "../../interface/tokenInterface";
+import {GenerateToken, TokenResponse} from "../../interface/token.interface";
 import {TokenType} from "@prisma/client";
 
 export class TokenService {

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync";
 import {UserService} from "../services/user.service";
-import {IUserCreate, IUserSearch, IUserUpdate} from "../../interface/userInterface";
+import {IUserCreate, IUserSearch, IUserUpdate} from "../../interface/user.interface";
 import {HTTP_CREATED, HTTP_OK} from "../../constant/data";
 import {logger} from "../../config/logger";
 

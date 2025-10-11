@@ -3,7 +3,7 @@ import ApiError from "../../utils/apiError";
 import {UserValidation} from "../../validation/user.validation";
 import {Validation} from "../../validation/validation";
 import bcrypt from "bcrypt";
-import {IUser, IUserCreate, IUserSearch, IUserUpdate} from "../../interface/userInterface";
+import {IUser, IUserCreate, IUserSearch, IUserUpdate} from "../../interface/user.interface";
 import {UserRepository} from "../repository/user.repository";
 import {Pageable} from "../../interface/page";
 import {HTTP_CONFLICT, HTTP_NOT_FOUND} from "../../constant/data";
@@ -33,7 +33,6 @@ export class UserService {
         const searchUser = Validation.validate(UserValidation.SEARCH, userFilter);
         const result = await this.userRepository.getAllUsers(searchUser);
         return result;
-
     }
 
     async updateUser(userData: IUserUpdate, id: string): Promise<IUser> {
@@ -51,7 +50,7 @@ export class UserService {
 
         const user = await this.userRepository.updateUser(id, updateUser);
 
-        return user
+        return user;
 
     }
 

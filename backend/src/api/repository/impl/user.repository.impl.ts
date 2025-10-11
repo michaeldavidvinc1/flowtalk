@@ -1,11 +1,12 @@
-import {IUser, IUserCreate, IUserSearch, IUserUpdate} from "../../../interface/userInterface";
+import {IUserCreate, IUserSearch, IUserUpdate} from "../../../interface/user.interface";
 import {Pageable} from "../../../interface/page";
+import {UserEntity} from "../../../entity/user.entity";
 
 export interface UserRepositoryImpl {
-    createUser(userData: IUserCreate): Promise<IUser>;
-    getUserById(id: string): Promise<IUser | null>;
-    getUserByEmail(email: string): Promise<IUser | null>;
-    updateUser(id: string, userData: IUserUpdate): Promise<IUser>;
-    deleteUser(id: string): Promise<IUser>;
-    getAllUsers(userFilter: IUserSearch): Promise<Pageable<IUser>>;
+    createUser(userData: IUserCreate): Promise<UserEntity>;
+    getUserById(id: string): Promise<UserEntity | null>;
+    getUserByEmail(email: string): Promise<UserEntity | null>;
+    updateUser(id: string, userData: IUserUpdate): Promise<UserEntity>;
+    deleteUser(id: string): Promise<UserEntity>;
+    getAllUsers(userFilter: IUserSearch): Promise<Pageable<UserEntity>>;
 }

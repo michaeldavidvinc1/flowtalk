@@ -2,23 +2,25 @@ import ApiError from "../../utils/apiError";
 import { AuthValidation } from "../../validation/auth.validation";
 import { Validation } from "../../validation/validation";
 import { TokenService } from "./token.service";
-import bcrypt from "bcryptjs";
 import {AuthResponse, ILoginRequest, IRegisterRequest} from "../../interface/auth.interface";
-import {HTTP_CONFLICT, HTTP_FORBIDDEN, HTTP_NOT_FOUND, HTTP_UNAUTHORIZED} from "../../constant/data";
+import {HTTP_CONFLICT, HTTP_FORBIDDEN, HTTP_NOT_FOUND} from "../../constant/data";
 import {UserRepositoryImpl} from "../repository/impl/user.repository.impl";
-import moment from "moment";
 import {RedisService} from "./redis.service";
 import {TokenType} from "@prisma/client";
+import {UserEntity} from "../../entity/user.entity";
+import {logger} from "../../config/logger";
 
 export class AuthService {
 
     constructor(
         private userRepository: UserRepositoryImpl,
         private tokenService: TokenService,
-        private redisService: RedisService
+        private redisService: RedisService,
+        private userEntity: UserEntity
     ) {}
 
     async login(req: ILoginRequest): Promise<AuthResponse> {
+        logger.info(`[AuthService] Login Start`);
         const loginRequest = Validation.validate(AuthValidation.LOGIN, req);
 
         const user = await this.userRepository.getUserByEmail(loginRequest.email);
@@ -27,7 +29,7 @@ export class AuthService {
             throw new ApiError(HTTP_FORBIDDEN, "Incorrect email or password");
         }
 
-        const isPasswordValid = await bcrypt.compare(loginRequest.password, user.password);
+        const isPasswordValid = this.userEntity.verifyPassword(loginRequest.password);
 
         if (!isPasswordValid) {
             throw new ApiError(HTTP_FORBIDDEN, "Incorrect email or password");
@@ -50,7 +52,7 @@ export class AuthService {
             tokenRefresh.expires,
             TokenType.REFRESH
         );
-
+        logger.info(`[AuthService] Login End`);
         return {
             user,
             tokens: {
@@ -61,6 +63,7 @@ export class AuthService {
     }
 
     async register(req: IRegisterRequest): Promise<AuthResponse> {
+        logger.info(`[AuthService] Register Start`);
         const registerRequest = Validation.validate(AuthValidation.REGISTER, req);
 
         const checkUser = await this.userRepository.getUserByEmail(registerRequest.email);
@@ -69,7 +72,7 @@ export class AuthService {
             throw new ApiError(HTTP_CONFLICT, "Email already exists!");
         }
 
-        registerRequest.password = await bcrypt.hash(registerRequest.password, 10);
+        registerRequest.password = await this.userEntity.hashPassword(registerRequest.password);
         registerRequest.avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(registerRequest.name)}&background=random`;
 
         const user = await this.userRepository.createUser(registerRequest);
@@ -91,6 +94,7 @@ export class AuthService {
             TokenType.REFRESH
         );
 
+        logger.info(`[AuthService] Register End`);
         return {
             user,
             tokens: {
@@ -101,7 +105,7 @@ export class AuthService {
     }
 
     async refreshToken(userId: string, refreshToken: string): Promise<AuthResponse> {
-
+        logger.info(`[AuthService] Refresh Token Start`);
         const checkUser = await this.userRepository.getUserById(userId);
 
         if(!checkUser){
@@ -120,6 +124,7 @@ export class AuthService {
         const tokenAccess = await this.tokenService.generateAccessToken(userId);
         const tokenRefresh = await this.tokenService.generateRefreshToken(userId);
 
+        logger.info(`[AuthService] Refresh Token End`);
         return {
             user: {
                 id: checkUser.id,
