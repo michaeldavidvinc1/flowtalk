@@ -89,7 +89,7 @@ model ConversationMember {
   userId         String           @map("user_id")
   user           User             @relation(fields: [userId], references: [id])
   role           RoleConversation
-  joinAt         DateTime         @map("join_at")
+  joinAt         DateTime         @default(now()) @map("join_at")
 
   @@map("conversation_member")
 }
@@ -128,7 +128,7 @@ model Calls {
   user           User         @relation(fields: [callerId], references: [id])
   type           TypeCalls
   status         StatusCalls
-  startAt        DateTime     @map("start_at")
+  startAt        DateTime     @default(now()) @map("start_at")
   endedAt        DateTime     @map("ended_at")
 
   @@map("calls")

@@ -8,3 +8,10 @@ export interface IConversation {
     createdBy: string;
     createdAt: Date;
 }
+
+export interface IConversationCreate {
+    type: TypeConversation;
+    name: string;
+    avatarUrl: string;
+    createdBy: string;
+}

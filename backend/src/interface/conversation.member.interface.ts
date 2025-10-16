@@ -7,3 +7,9 @@ export interface IConversationMember {
     role: RoleConversation;
     joinAt: Date;
 }
+
+export interface IConversationMemberCreate {
+    conversationId: string;
+    userId: string;
+    role: RoleConversation;
+}

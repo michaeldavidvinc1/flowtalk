@@ -6,3 +6,9 @@ export interface IMessageStatus {
     userId: string;
     status: StatusMessage;
 }
+
+export interface IMessageStatusCreate {
+    messageId: string;
+    userId: string;
+    status: StatusMessage;
+}
